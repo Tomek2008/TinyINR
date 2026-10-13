@@ -1,0 +1,8 @@
+torch>=2.0.0
+numpy>=1.24.0
+open3d>=0.17.0
+point-cloud-utils>=0.29.0
+scikit-image>=0.20.0
+scipy>=1.10.0
+DracoPy>=2.2.0
+plotly>=5.14.0
