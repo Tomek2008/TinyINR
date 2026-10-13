@@ -6,3 +6,5 @@ scikit-image>=0.20.0
 scipy>=1.10.0
 DracoPy>=2.2.0
 plotly>=5.14.0
+trimesh>=4.6.0,<6
+Pillow>=9.0.0

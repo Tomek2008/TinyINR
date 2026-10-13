@@ -3,12 +3,10 @@ import json
 from pathlib import Path
 
 import numpy as np
-import open3d as o3d
 from scipy.spatial import cKDTree
 from skimage import measure
 import torch
 
-from data import load_mesh
 from kan import KAN
 from train import dequantize_state
 
@@ -81,6 +79,8 @@ def save_obj(verts, faces, path):
 
 
 def evaluate_chamfer(mesh_gt, verts_pred, faces_pred, num_samples=100_000):
+    import open3d as o3d
+
     pred_mesh = o3d.geometry.TriangleMesh(
         o3d.utility.Vector3dVector(np.asarray(verts_pred, dtype=np.float64)),
         o3d.utility.Vector3iVector(np.asarray(faces_pred, dtype=np.int32)),
@@ -95,6 +95,8 @@ def evaluate_chamfer(mesh_gt, verts_pred, faces_pred, num_samples=100_000):
 
 
 if __name__ == "__main__":
+    from data import load_mesh
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--weights", required=True)
     parser.add_argument("--meta", default=None)
