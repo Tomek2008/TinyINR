@@ -8,7 +8,6 @@ import torch
 from torch.func import functional_call
 from torch.utils.data import DataLoader, TensorDataset
 
-from data import load_mesh, make_sdf_dataset
 from kan import KAN
 
 
@@ -200,6 +199,8 @@ def train(
     omega_0=30.0,
     input_scale=3.0,
 ):
+    from data import load_mesh, make_sdf_dataset
+
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
 
